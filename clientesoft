@@ -1,0 +1,20 @@
+public class Cliente {
+    private String nome;
+    private int codigo;
+    static int qtd_obj;
+
+    Cliente(){
+        qtd_obj++;
+        this.codigo = qtd_obj;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    
+}

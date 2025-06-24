@@ -1,0 +1,99 @@
+import java.util.Scanner;
+
+public class Software {
+    Scanner input = new Scanner(System.in);
+
+    static int codigo;
+    private int qtd_obj;
+    String nome;
+    Double valor;
+    Desenvolvedor desenvolvedor;
+    Cliente cliente;
+
+    
+
+    Software(){
+        this.nome = nome;
+        this.valor = valor;
+        qtd_obj++;
+        this.codigo = qtd_obj;
+    }
+
+    public void cadastrar_dados(String nome, Double valor, Desenvolvedor desenvolvedor, Cliente cliente){
+        this.nome = nome;
+        this.valor = valor;
+        this.desenvolvedor = desenvolvedor;
+        this.cliente = cliente;
+
+    }
+
+    public void exibir_dados(){
+        System.out.println("Nome do plano: " + nome);
+        System.out.println("Valor do plano: " + valor);
+        System.out.println("Cliente do plano: " + cliente.getNome());
+        System.out.println("Desenvolvedor do plano: " + desenvolvedor.getNome());
+        System.out.println("Código: "+ codigo);
+
+    }
+
+    public void alterar_dados(Cliente cliente1, Cliente cliente2, Desenvolvedor desenvolvedor1, Desenvolvedor desenvolvedor2){
+
+        System.out.println("O que deseja alterar?");
+        System.out.println("1 - Nome");
+        System.out.println("2 - Valor");
+        System.out.println("3 - Cliente");
+        System.out.println("4 - Desenvolvedor");
+
+
+        int op1 = input.nextInt();
+
+        switch (op1) {
+            case 1:
+                System.out.println("Novo nome: ");
+                nome = input.next();
+                System.out.println("Alterado com sucesso");
+                break;
+
+            case 2:
+                System.out.println("Novo valor: ");
+                valor = input.nextDouble();
+                System.out.println("Alterado com sucesso");
+                break;
+
+            case 3:
+                System.out.println("Selelcione o novo cliente:");
+                System.out.println("1. Rayana");
+                System.out.println("2. Sofia");
+                int clienteEsco = input.nextInt();
+
+                cliente = (clienteEsco == 1) ? cliente1 : cliente2;
+                break;
+
+            case 4:
+                System.out.println("Escolha o novo desenvolvedor:");
+                System.out.println("1. Eduardo");
+                System.out.println("2. Ana Graz");
+                int desenvolvedorEsco = input.nextInt();
+
+                desenvolvedor = (desenvolvedorEsco == 1) ? desenvolvedor1 : desenvolvedor2;
+                break;
+
+            default:
+                break;
+        }
+
+
+    }
+
+    public void atualizar_valor(){
+        valor = valor + (valor * 0.1);
+    }
+
+    public void atualizar_valor(double taxa){
+        valor = valor + (valor * (taxa/100));
+    }
+
+    public void tipo(){
+
+    }
+}

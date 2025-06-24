@@ -1,0 +1,10 @@
+public class Software_Mobile extends Software{
+
+    public Software_Mobile(){
+        super();
+    }
+
+    public void tipo(){
+        System.out.println("Esse software é mobile");
+    }
+}

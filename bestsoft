@@ -1,0 +1,108 @@
+import java.util.Scanner;
+
+public class BestSoft {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        String nomeSoft = "";
+        Double valorSoft; 
+        int op1 = 0;
+        Desenvolvedor desenvolvedorSoft;
+        Cliente clienteSoft;
+
+        Software software = new Software_PC();
+
+        Cliente cliente1 = new Cliente();
+        cliente1.setNome("Rayana"); 
+
+        Cliente cliente2 = new Cliente();
+        cliente2.setNome("Sofia"); 
+
+        Desenvolvedor desenvolvedor1 = new Desenvolvedor();
+        desenvolvedor1.setNome("Eduardo");
+
+        Desenvolvedor desenvolvedor2 = new Desenvolvedor();
+        desenvolvedor2.setNome("Ana Graz");
+
+        do {
+            
+        System.out.println("1 - Cadastrar");
+        System.out.println("2 - Exibir dados");
+        System.out.println("3 - Alterar");
+        System.out.println("4 - Atualizar");
+        System.out.println("5 - Sair");
+        System.out.println("Qual opção deseja: ");
+        op1 = input.nextInt();
+
+        switch (op1) {
+            case 1:
+                System.out.println("Insira o nome do sofware: ");
+                nomeSoft =  input.next();
+
+                System.out.println("Insira o valor do sofware: ");
+
+                valorSoft = input.nextDouble();
+
+                System.out.println("Selelcione o cliente:");
+                System.out.println("1. Rayana");
+                System.out.println("2. Sofia");
+
+                int clienteEsco = input.nextInt();
+
+                clienteSoft = (clienteEsco == 1) ? cliente1 : cliente2;
+
+                System.out.println("Escolha um dos desenvolvevores:");
+                System.out.println("1. Eduardo");
+                System.out.println("2. Ana Graz");
+
+                int desenvolvedorEsco = input.nextInt();
+
+                desenvolvedorSoft = (desenvolvedorEsco == 1) ? desenvolvedor1 : desenvolvedor2;
+
+                software.cadastrar_dados(nomeSoft, valorSoft, desenvolvedorSoft, clienteSoft);
+                    
+                break;
+                
+            case 2:
+                software.exibir_dados();
+                software.tipo();  
+                break;
+                
+            case 3:
+                software.alterar_dados(cliente1, cliente2, desenvolvedor1, desenvolvedor2);  
+                break;
+
+            case 4:
+                System.out.println("Escolha a taxa para atualizar o valor");
+                System.out.println("1. Taxa fixa (10%)");
+                System.out.println("2. Nova taxa ");
+                int Op_taxa = input.nextInt();
+
+                switch (Op_taxa) {
+                    case 1:
+                        software.atualizar_valor();
+                        break;
+                        
+                    case 2:
+                        System.out.println("Qual a nova taxa? (%)");
+                        int nova_taxa = input.nextInt();
+                        software.atualizar_valor(nova_taxa);
+                        break;
+                        
+                    default:
+                        break;
+                }
+                break;
+
+            case 5:
+            
+                break;
+            
+            default:
+                break;
+
+            
+            }
+
+        } while (op1 != 5);
+    }
+}

@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class BestSoft {
@@ -9,7 +10,7 @@ public class BestSoft {
         Desenvolvedor desenvolvedorSoft;
         Cliente clienteSoft;
 
-        Software software = new Software_PC();
+        Software software = null;
 
         Cliente cliente1 = new Cliente();
         cliente1.setNome("Rayana"); 
@@ -21,7 +22,7 @@ public class BestSoft {
         desenvolvedor1.setNome("Eduardo");
 
         Desenvolvedor desenvolvedor2 = new Desenvolvedor();
-        desenvolvedor2.setNome("Ana Graz");
+        desenvolvedor2.setNome("Ana Grazi");
 
         do {
             
@@ -35,6 +36,19 @@ public class BestSoft {
 
         switch (op1) {
             case 1:
+
+                System.out.println("Qual o tipo do seu software: ");
+                System.out.println("1. Software para PC");
+                System.out.println("2. Software para Mobile");
+                int tiposoftware = input.nextInt();
+                if (tiposoftware == 1) {
+                    software = new Software_PC();
+                }else if (tiposoftware == 2){
+                    software = new Software_Mobile();
+                }else{
+                    System.out.println("Tipo de software invalido, cadastro cancelado");
+                }
+
                 System.out.println("Insira o nome do sofware: ");
                 nomeSoft =  input.next();
 
